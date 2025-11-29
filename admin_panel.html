@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel ASIS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Login Section */
+        .login-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container.show {
+            display: flex;
+        }
+
+        .login-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 400px;
+            border-top: 4px solid #d4af37;
+        }
+
+        .login-box h1 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .login-form input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 12px;
+            background: #d4af37;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .login-btn:hover {
+            background: #f0c041;
+        }
+
+        /* Header */
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 4px solid #d4af37;
+        }
+
+        .header h1 {
+            color: #d4af37;
+            font-size: 2rem;
+        }
+
+        .logout-btn {
+            padding: 10px 20px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #d32f2f;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            color: #333;
+        }
+
+        .tab-btn.active {
+            background: #d4af37;
+            color: #1a1a1a;
+            border-color: #d4af37;
+        }
+
+        .tab-btn:hover {
+            border-color: #d4af37;
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-top: 4px solid #d4af37;
+        }
+
+        .tab-content.show {
+            display: block;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #f0c041;
+        }
+
+        .btn-danger {
+            background: #f44336;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #d32f2f;
+        }
+
+        .btn-secondary {
+            background: #666;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #555;
+        }
+
+        /* List Styles */
+        .item-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .item-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #d4af37;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .item-card h3 {
+            color: #d4af37;
+            margin-bottom: 0.5rem;
+        }
+
+        .item-card p {
+            color: #666;
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .item-actions button {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+        }
+
+        /* Table Styles */
+        .table-container {
+            overflow-x: auto;
+            margin-top: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        thead {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: white;
+        }
+
+        th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-top: 4px solid #d4af37;
+        }
+
+        .modal-content h2 {
+            color: #d4af37;
+            margin-bottom: 1.5rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #f44336;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .success-message {
+            background: rgba(76, 175, 80, 0.2);
+            color: #2e7d32;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+
+            .item-card {
+                flex-direction: column;
+            }
+
+            .item-actions {
+                width: 100%;
+            }
+
+            .item-actions button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-box">
+            <h1>🔐 Admin ASIS</h1>
+            <div class="login-form">
+                <input type="password" id="passwordInput" placeholder="Masukkan Password Admin" onkeypress="if(event.key==='Enter') login()">
+                <button class="login-btn" onclick="login()">Login</button>
+                <p style="text-align: center; color: #666; margin-top: 1rem; font-size: 0.9rem;">
+                    Password: <strong>asis2025</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div id="dashboard" style="display: none;">
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1>⚙️ Admin Panel ASIS</h1>
+                <button class="logout-btn" onclick="logout()">Logout</button>
+            </div>
+
+            <div class="success-message" id="successMessage">✓ Berhasil disimpan!</div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('pengumuman')">📢 Kelola Pengumuman</button>
+                <button class="tab-btn" onclick="switchTab('leaderboard-math')">📐 Leaderboard Matematika</button>
+                <button class="tab-btn" onclick="switchTab('leaderboard-english')">🌍 Leaderboard Bahasa Inggris</button>
+            </div>
+
+            <!-- Tab: Pengumuman -->
+            <div class="tab-content show" id="tab-pengumuman">
+                <h2>📢 Kelola Pengumuman</h2>
+                
+                <button class="btn btn-primary" onclick="openPengumumanForm()">+ Tambah Pengumuman Baru</button>
+
+                <div class="item-list" id="pengumumanList">
+                    <p style="text-align: center; color: #999;">Tidak ada pengumuman</p>
+                </div>
+            </div>
+
+            <!-- Tab: Leaderboard Matematika -->
+            <div class="tab-content" id="tab-leaderboard-math">
+                <h2>📐 Leaderboard Matematika</h2>
+                
+                <button class="btn btn-primary" onclick="openLeaderboardForm('math')">+ Tambah/Edit Peserta</button>
+
+                <div class="table-container">
+                    <table id="leaderboardMathTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Siswa</th>
+                                <th>Poin</th>
+                                <th>Level</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardMathBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Tab: Leaderboard Bahasa Inggris -->
+            <div class="tab-content" id="tab-leaderboard-english">
+                <h2>🌍 Leaderboard Bahasa Inggris</h2>
+                
+                <button class="btn btn-primary" onclick="openLeaderboardForm('english')">+ Tambah/Edit Peserta</button>
+
+                <div class="table-container">
+                    <table id="leaderboardEnglishTable">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nama Siswa</th>
+                                <th>Poin</th>
+                                <th>Level</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="leaderboardEnglishBody">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pengumuman -->
+    <div class="modal" id="pengumumanModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closePengumumanModal()">×</button>
+            <h2 id="pengumumanModalTitle">Tambah Pengumuman</h2>
+            <form onsubmit="savePengumuman(event)">
+                <div class="form-group">
+                    <label>Kategori</label>
+                    <select id="pengumumanKategori" required>
+                        <option value="">-- Pilih Kategori --</option>
+                        <option value="Terbaru">Terbaru</option>
+                        <option value="Program">Program</option>
+                        <option value="Klub">Klub</option>
+                        <option value="Pengumuman">Pengumuman</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Judul</label>
+                    <input type="text" id="pengumumanJudul" required placeholder="Masukkan judul pengumuman">
+                </div>
+                <div class="form-group">
+                    <label>Isi Pengumuman</label>
+                    <textarea id="pengumumanIsi" required placeholder="Masukkan isi pengumuman"></textarea>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" onclick="closePengumumanModal()">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Leaderboard -->
+    <div class="modal" id="leaderboardModal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeLeaderboardModal()">×</button>
+            <h2 id="leaderboardModalTitle">Tambah Peserta</h2>
+            <form onsubmit="saveLeaderboard(event)">
+                <div class="form-group">
+                    <label>Nama Siswa</label>
+                    <input type="text" id="leaderboardNama" required placeholder="Masukkan nama siswa">
+                </div>
+                <div class="form-group">
+                    <label>Poin</label>
+                    <input type="number" id="leaderboardPoin" required placeholder="Masukkan poin" min="0">
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeLeaderboardModal()">Batal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentUser = null;
+        let editingPengumumanIndex = null;
+        let editingLeaderboardIndex = null;
+        let currentLeaderboardType = null;
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            checkLogin();
+        });
+
+        // Login
+        function login() {
+            const password = document.getElementById('passwordInput').value;
+            if (password === 'asis2025') {
+                currentUser = 'admin';
+                document.getElementById('loginContainer').classList.remove('show');
+                document.getElementById('dashboard').style.display = 'block';
+                loadData();
+            } else {
+                alert('Password salah!');
+            }
+        }
+
+        function checkLogin() {
+            if (!currentUser) {
+                document.getElementById('loginContainer').classList.add('show');
+                document.getElementById('dashboard').style.display = 'none';
+            }
+        }
+
+        function logout() {
+            currentUser = null;
+            document.getElementById('dashboard').style.display = 'none';
+            document.getElementById('loginContainer').classList.add('show');
+            document.getElementById('passwordInput').value = '';
+        }
+
+        // Tab Switching
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('show'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tabName).classList.add('show');
+            event.target.classList.add('active');
+        }
+
+        // Data Management
+        function loadData() {
+            loadPengumuman();
+            loadLeaderboard('math');
+            loadLeaderboard('english');
+        }
+
+        function saveData() {
+            localStorage.setItem('asisData', JSON.stringify({
+                pengumuman: window.pengumumanData || [],
+                leaderboardMath: window.leaderboardMathData || [],
+                leaderboardEnglish: window.leaderboardEnglishData || []
+            }));
+        }
+
+        function loadDataFromStorage() {
+            const data = localStorage.getItem('asisData');
+            if (data) {
+                const parsed = JSON.parse(data);
+                window.pengumumanData = parsed.pengumuman || [];
+                window.leaderboardMathData = parsed.leaderboardMath || [];
+                window.leaderboardEnglishData = parsed.leaderboardEnglish || [];
+            } else {
+                initializeDefaultData();
+            }
+        }
+
+        function initializeDefaultData() {
+            window.pengumumanData = [
+                { kategori: 'Program', judul: 'Arabic-English Day 2024', isi: 'ASIS dengan bangga mempersembahkan Arabic-English Day, program unggulan yang menggabungkan pembelajaran bahasa Arab dan Inggris.' },
+                { kategori: 'Klub', judul: 'Workshop Persiapan Kompetisi Matematika', isi: 'Klub Matematika mengadakan workshop intensif untuk persiapan kompetisi tingkat regional.' }
+            ];
+            window.leaderboardMathData = [
+                { nama: 'Muhammad Fahreza', poin: 2450 },
+                { nama: 'Rizki Pratama', poin: 1980 }
+            ];
+            window.leaderboardEnglishData = [
+                { nama: 'Sarim Wiradi', poin: 2180 },
+                { nama: 'David Kusuma', poin: 1890 }
+            ];
+            saveData();
+        }
+
+        // Pengumuman Functions
+        function loadPengumuman() {
+            loadDataFromStorage();
+            const list = document.getElementById('pengumumanList');
+            
+            if (window.pengumumanData.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: #999;">Tidak ada pengumuman</p>';
+                return;
+            }
+
+            list.innerHTML = window.pengumumanData.map((item, index) => `
+                <div class="item-card">
+                    <div style="flex: 1;">
+                        <h3>${item.kategori}</h3>
+                        <h4 style="color: #333; margin-bottom: 0.5rem;">${item.judul}</h4>
+                        <p>${item.isi}</p>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-primary" onclick="editPengumuman(${index})">Edit</button>
+                        <button class="btn btn-danger" onclick="deletePengumuman(${index})">Hapus</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openPengumumanForm() {
+            editingPengumumanIndex = null;
+            document.getElementById('pengumumanModalTitle').textContent = 'Tambah Pengumuman';
+            document.getElementById('pengumumanKategori').value = '';
+            document.getElementById('pengumumanJudul').value = '';
+            document.getElementById('pengumumanIsi').value = '';
+            document.getElementById('pengumumanModal').classList.add('show');
+        }
+
+        function editPengumuman(index) {
+            editingPengumumanIndex = index;
+            const item = window.pengumumanData[index];
+            document.getElementById('pengumumanModalTitle').textContent = 'Edit Pengumuman';
+            document.getElementById('pengumumanKategori').value = item.kategori;
+            document.getElementById('pengumumanJudul').value = item.judul;
+            document.getElementById('pengumumanIsi').value = item.isi;
+            document.getElementById('pengumumanModal').classList.add('show');
+        }
+
+        function savePengumuman(e) {
+            e.preventDefault();
+            const item = {
+                kategori: document.getElementById('pengumumanKategori').value,
+                judul: document.getElementById('pengumumanJudul').value,
+                isi: document.getElementById('pengumumanIsi').value
+            };
+
+            if (editingPengumumanIndex !== null) {
+                window.pengumumanData[editingPengumumanIndex] = item;
+            } else {
+                window.pengumumanData.push(item);
+            }
+
+            saveData();
+            closePengumumanModal();
+            loadPengumuman();
+            showSuccessMessage();
+        }
+
+        function deletePengumuman(index) {
+            if (confirm('Hapus pengumuman ini?')) {
+                window.pengumumanData.splice(index, 1);
+                saveData();
+                loadPengumuman();
+            }
+        }
+
+        function closePengumumanModal() {
+            document.getElementById('pengumumanModal').classList.remove('show');
+        }
+
+        // Leaderboard Functions
+        function loadLeaderboard(type) {
+            loadDataFromStorage();
+            const data = type === 'math' ? window.leaderboardMathData : window.leaderboardEnglishData;
+            const tbody = document.getElementById('leaderboard' + (type === 'math' ? 'Math' : 'English') + 'Body');
+
+            tbody.innerHTML = data.map((item, index) => {
+                const level = getLevel(item.poin, type);
+                return `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${item.nama}</td>
+                        <td><strong>${item.poin}</strong></td>
+                        <td>${level}</td>
+                        <td>
+                            <button class="btn btn-primary" style="padding: 6px 12px; font-size: 0.85rem;" onclick="editLeaderboard(${index}, '${type}')">Edit</button>
+                            <button class="btn btn-danger" style="padding: 6px 12px; font-size: 0.85rem;" onclick="deleteLeaderboard(${index}, '${type}')">Hapus</button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function getLevel(poin, type) {
+            if (type === 'math') {
+                if (poin >= 2000) return '👑 Champion';
+                if (poin >= 1000) return '🥇 Legend';
+                if (poin >= 500) return '🥈 Master';
+                return '⭐ Pemula';
+            } else {
+                if (poin >= 1800) return '🏆 Expert';
+                if (poin >= 900) return '🌳 Fluent';
+                if (poin >= 400) return '🌿 Speaker';
+                return '🌱 Learner';
+            }
+        }
+
+        function openLeaderboardForm(type) {
+            currentLeaderboardType = type;
+            editingLeaderboardIndex = null;
+            document.getElementById('leaderboardModalTitle').textContent = 'Tambah Peserta - ' + (type === 'math' ? 'Matematika' : 'Bahasa Inggris');
+            document.getElementById('leaderboardNama').value = '';
+            document.getElementById('leaderboardPoin').value = '';
+            document.getElementById('leaderboardModal').classList.add('show');
+        }
+
+        function editLeaderboard(index, type) {
+            currentLeaderboardType = type;
+            editingLeaderboardIndex = index;
+            const data = type === 'math' ? window.leaderboardMathData : window.leaderboardEnglishData;
+            const item = data[index];
+            document.getElementById('leaderboardModalTitle').textContent = 'Edit Peserta - ' + (type === 'math' ? 'Matematika' : 'Bahasa Inggris');
+            document.getElementById('leaderboardNama').value = item.nama;
+            document.getElementById('leaderboardPoin').value = item.poin;
+            document.getElementById('leaderboardModal').classList.add('show');
+        }
+
+        function saveLeaderboard(e) {
+            e.preventDefault();
+            const item = {
+                nama: document.getElementById('leaderboardNama').value,
+                poin: parseInt(document.getElementById('leaderboardPoin').value)
+            };
+
+            if (currentLeaderboardType === 'math') {
+                if (editingLeaderboardIndex !== null) {
+                    window.leaderboardMathData[editingLeaderboardIndex] = item;
+                } else {
+                    window.leaderboardMathData.push(item);
+                }
+                window.leaderboardMathData.sort((a, b) => b.poin - a.poin);
+            } else {
+                if (editingLeaderboardIndex !== null) {
+                    window.leaderboardEnglishData[editingLeaderboardIndex] = item;
+                } else {
+                    window.leaderboardEnglishData.push(item);
+                }
+                window.leaderboardEnglishData.sort((a, b) => b.poin - a.poin);
+            }
+
+            saveData();
+            closeLeaderboardModal();
+            loadLeaderboard(currentLeaderboardType);
+            showSuccessMessage();
+        }
+
+        function deleteLeaderboard(index, type) {
+            if (confirm('Hapus peserta ini?')) {
+                if (type === 'math') {
+                    window.leaderboardMathData.splice(index, 1);
+                } else {
+                    window.leaderboardEnglishData.splice(index, 1);
+                }
+                saveData();
+                loadLeaderboard(type);
+            }
+        }
+
+        function closeLeaderboardModal() {
+            document.getElementById('leaderboardModal').classList.remove('show');
+        }
+
+        function showSuccessMessage() {
+            const msg = document.getElementById('successMessage');
+            msg.classList.add('show');
+            setTimeout(() => msg.classList.remove('show'), 3000);
+        }
+    </script>
+</body>
+</html>
