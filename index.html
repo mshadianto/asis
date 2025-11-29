@@ -19,12 +19,12 @@
 
         /* Navbar */
         nav {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .navbar-container {
@@ -48,20 +48,19 @@
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: #d4af37;
+            background: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
-            color: #1a1a1a;
+            color: #667eea;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 1rem;
-            flex-wrap: wrap;
+            gap: 2rem;
         }
 
         .nav-menu a {
@@ -69,7 +68,6 @@
             text-decoration: none;
             transition: opacity 0.3s;
             font-weight: 500;
-            font-size: 0.9rem;
         }
 
         .nav-menu a:hover {
@@ -78,7 +76,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 80px 20px;
             text-align: center;
@@ -120,14 +118,13 @@
         }
 
         .btn-primary {
-            background: #d4af37;
-            color: #1a1a1a;
+            background: white;
+            color: #667eea;
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-            background: #f0c041;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .btn-secondary {
@@ -137,8 +134,8 @@
         }
 
         .btn-secondary:hover {
-            background: #d4af37;
-            color: #1a1a1a;
+            background: white;
+            color: #667eea;
         }
 
         /* Container */
@@ -177,7 +174,7 @@
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-            border-left: 4px solid #d4af37;
+            border-left: 4px solid #667eea;
         }
 
         .announcement-card:hover {
@@ -186,7 +183,7 @@
         }
 
         .announcement-card .date {
-            color: #d4af37;
+            color: #667eea;
             font-weight: bold;
             font-size: 0.9rem;
         }
@@ -213,13 +210,12 @@
         }
 
         .club-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 2.5rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s;
-            border-top: 3px solid #d4af37;
         }
 
         .club-card:hover {
@@ -242,11 +238,21 @@
         }
 
         .club-details {
-            background: rgba(212, 175, 55, 0.15);
+            background: rgba(255,255,255,0.2);
             padding: 1.5rem;
             border-radius: 5px;
             margin-top: 1rem;
-            border-left: 3px solid #d4af37;
+        }
+
+        .club-details strong {
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        /* Gamifikasi Section */
+        .gamifikasi {
+            background: white;
+            padding: 4rem 0;
         }
 
         /* Pembelajaran Section */
@@ -279,31 +285,13 @@
         }
 
         .resource-card h3 {
-            color: #d4af37;
+            color: #667eea;
             margin-bottom: 1rem;
-        }
-
-        .resource-card button {
-            background: #d4af37 !important;
-            color: #1a1a1a !important;
-            border: none !important;
-            padding: 10px !important;
-            border-radius: 5px !important;
-            cursor: pointer !important;
-            font-weight: bold !important;
-            margin-top: 1rem !important;
-            width: 100% !important;
-            transition: all 0.3s !important;
-        }
-
-        .resource-card button:hover {
-            background: #f0c041 !important;
-            transform: translateY(-2px) !important;
         }
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
         }
 
@@ -329,10 +317,9 @@
         .contact-form {
             max-width: 600px;
             margin: 2rem auto;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
             border-radius: 10px;
-            border: 1px solid #d4af37;
         }
 
         .form-group {
@@ -349,24 +336,9 @@
         .form-group textarea {
             width: 100%;
             padding: 10px;
-            border: 1px solid #d4af37;
+            border: none;
             border-radius: 5px;
             font-family: inherit;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #f0c041;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
         }
 
         .form-group textarea {
@@ -376,11 +348,10 @@
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+            background: #333;
             color: white;
             text-align: center;
             padding: 2rem;
-            border-top: 2px solid #d4af37;
         }
 
         /* Responsive */
@@ -390,8 +361,8 @@
             }
 
             .nav-menu {
-                gap: 0.5rem;
-                font-size: 0.8rem;
+                gap: 1rem;
+                font-size: 0.9rem;
             }
 
             section h2 {
@@ -421,7 +392,7 @@
         }
 
         .about-content h3 {
-            color: #d4af37;
+            color: #667eea;
             margin: 1.5rem 0 1rem 0;
         }
 
@@ -442,16 +413,7 @@
             background: white;
             padding: 1rem;
             border-radius: 5px;
-            border-left: 4px solid #d4af37;
-        }
-
-        /* Tab styles */
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
+            border-left: 4px solid #667eea;
         }
     </style>
 </head>
@@ -466,10 +428,8 @@
             <ul class="nav-menu">
                 <li><a href="#beranda">Beranda</a></li>
                 <li><a href="#tentang">Tentang</a></li>
-                <li><a href="#struktur">Organisasi</a></li>
                 <li><a href="#pengumuman">Pengumuman</a></li>
                 <li><a href="#klub">Klub</a></li>
-                <li><a href="#gamifikasi">Gamifikasi</a></li>
                 <li><a href="#pembelajaran">Pembelajaran</a></li>
                 <li><a href="#kontak">Kontak</a></li>
             </ul>
@@ -494,117 +454,27 @@
         <div class="container">
             <h2>Tentang ASIS</h2>
             <div class="about-content">
-                <div style="background: linear-gradient(135deg, #d4af37 0%, #f0c041 100%); color: #1a1a1a; padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem; text-align: center;">
-                    <p style="margin: 0; font-size: 0.95rem;"><strong>Assalamu'alaikum warahmatullahi wabarakatuh</strong></p>
-                </div>
+                <h3>🎓 Apa itu ASIS?</h3>
+                <p>ASIS (Asosiasi Siswa Homeschooling Imam Nawawi) adalah komunitas belajar yang didirikan untuk mendukung pengembangan akademik dan personal siswa homeschooling di bawah naungan Pesantren Imam Nawawi. Kami berkomitmen menciptakan lingkungan belajar yang kolaboratif, inovatif, dan inspiratif.</p>
 
-                <h3>🎓 Tentang ASIS</h3>
-                <p>ASIS (Asosiasi Siswa Homeschooling Imam Nawawi) adalah organisasi pelajar yang berada di Homeschooling Imam Nawawi Ciomas Bogor. Kami berkomitmen untuk mengembangkan siswa yang tidak hanya unggul dalam akademik, namun juga memiliki akhlak mulia dan siap berkontribusi untuk masa depan.</p>
-
-                <h3>🎯 VISI</h3>
-                <p style="line-height: 2; font-size: 1.1rem; font-style: italic; color: #d4af37;">
-                    <strong>"Mewujudkan Asosiasi Siswa Homeschooling Imam Nawawi sebagai organisasi pelajar yang beradab, kreatif, produktif, dan harmonis, yang mampu membina generasi salaf yang berilmu, berakhlak mulia, dan siap memimpin masa depan."</strong>
-                </p>
-
-                <h3>📋 MISI</h3>
-                <p>Untuk mewujudkan visi tersebut, misi yang akan dijalankan adalah:</p>
-                <div style="background: rgba(212, 175, 55, 0.1); padding: 1.5rem; border-left: 3px solid #d4af37; border-radius: 5px; margin: 1rem 0;">
-                    <p><strong>1. Meningkatkan Kualitas Program Pembelajaran & Kegiatan</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        <li>Menghidupkan kembali program unggulan sebelumnya, seperti Arabic-English Day</li>
-                        <li>Menyusun program baru yang inovatif, menyenangkan, dan sesuai prinsip salaf</li>
-                        <li>Membuat timeline tahunan agar semua program terstruktur dan berkelanjutan</li>
-                    </ul>
-
-                    <p style="margin-top: 1rem;"><strong>2. Mengoptimalkan Struktur Organisasi</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        <li>Menetapkan Majelis Syura, Penerus, Staf, dan Kepala Staf dengan peran jelas</li>
-                        <li>Membuat tugas & SOP setiap divisi agar kerja staf efektif dan tertib</li>
-                        <li>Menyusun sistem koordinasi antar divisi: kegiatan, publikasi, medsos, dan administrasi</li>
-                    </ul>
-
-                    <p style="margin-top: 1rem;"><strong>3. Mendorong Kreativitas & Potensi Anggota</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        <li>Membuka SST (Seleksi Staf Terbuka) untuk memberi kesempatan semua anggota berperan aktif</li>
-                        <li>Menyediakan wadah bagi anggota menyalurkan bakat di desain, kepemimpinan, administrasi, media, dan kegiatan</li>
-                        <li>Membina anggota menjadi pribadi mandiri, beradab, dan produktif</li>
-                    </ul>
-
-                    <p style="margin-top: 1rem;"><strong>4. Memperkuat Akhlak dan Ukhuwah</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        <li>Menjadikan adab, akhlak, dan kerjasama sebagai pondasi kegiatan</li>
-                        <li>Membina suasana organisasi yang harmonis antara senior dan junior</li>
-                        <li>Memastikan semua program berjalan dengan niat ikhlas lillahi ta'ala</li>
-                    </ul>
-
-                    <p style="margin-top: 1rem;"><strong>5. Membangun Keberlanjutan Kepemimpinan</strong></p>
-                    <ul style="margin-left: 1.5rem; color: #555;">
-                        <li>Mempersiapkan Penerus untuk kepemimpinan berikutnya</li>
-                        <li>Membina kader dengan pengalaman memimpin dan mengkoordinasi program</li>
-                        <li>Menjaga kesinambungan visi dan misi organisasi meski ketua berganti</li>
-                    </ul>
-                </div>
+                <h3>🎯 Visi & Misi</h3>
+                <p><strong>Visi:</strong> Menjadi asosiasi siswa homeschooling yang menghasilkan generasi cerdas, berkarakter, dan berprestasi di bidang akademik dan non-akademik.</p>
+                <p><strong>Misi:</strong> Menyediakan platform pembelajaran yang komprehensif, memfasilitasi pertukaran pengetahuan antar siswa, dan mengembangkan potensi maksimal setiap anggota komunitas.</p>
 
                 <h3>💡 Nilai-Nilai Kami</h3>
                 <div class="values-list">
                     <div class="value-item">
-                        <strong>Beradab</strong><br>Menjunjung tinggi adab dan etika dalam setiap tindakan
+                        <strong>Kolaborasi</strong><br>Bekerja sama untuk kesuksesan bersama
                     </div>
                     <div class="value-item">
-                        <strong>Kreatif</strong><br>Mengembangkan ide-ide inovatif dan solusi kreatif
+                        <strong>Inovasi</strong><br>Terus berkembang dan mencari cara baru
                     </div>
                     <div class="value-item">
-                        <strong>Produktif</strong><br>Menghasilkan karya dan program yang bermanfaat
+                        <strong>Integritas</strong><br>Jujur dan bertanggung jawab dalam setiap tindakan
                     </div>
                     <div class="value-item">
-                        <strong>Harmonis</strong><br>Membangun kerjasama dan persatuan dalam kebersamaan
+                        <strong>Keunggulan</strong><br>Memberikan yang terbaik dalam segala hal
                     </div>
-                </div>
-
-                <div style="background: linear-gradient(135deg, #d4af37 0%, #f0c041 100%); color: #1a1a1a; padding: 1.5rem; border-radius: 10px; margin-top: 2rem;">
-                    <p style="margin: 0.5rem 0;"><strong>Semoga Allah memberikan taufik dan barakah-Nya untuk kita semua, agar ASIS tetap produktif, beradab, dan harmonis.</strong></p>
-                    <p style="margin: 0.5rem 0;"><strong>Wassalamu'alaikum warahmatullahi wabarakatuh</strong></p>
-                    <hr style="border: none; border-top: 2px solid rgba(26, 26, 26, 0.2); margin: 1rem 0;">
-                    <p style="margin: 0.5rem 0;"><strong>Muhammad Omar Alif</strong><br>Ketua ASIS</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Struktur Organisasi Section -->
-    <section class="struktur-organisasi" id="struktur" style="background: #f8f9fa;">
-        <div class="container">
-            <h2>🏛️ Struktur Organisasi ASIS</h2>
-            
-            <div style="background: linear-gradient(135deg, #d4af37 0%, #f0c041 100%); color: #1a1a1a; padding: 2rem; border-radius: 10px; margin-bottom: 3rem; text-align: center;">
-                <h3 style="margin-bottom: 1rem;">🎯 Pimpinan Asosiasi Siswa</h3>
-                <div style="background: white; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
-                    <p style="font-size: 1.1rem; margin: 0.5rem 0;"><strong>🪙 Ketua Asosiasi Siswa</strong><br>Muhammad Omar Alif</p>
-                    <p style="font-size: 1rem; margin: 1rem 0 0 0;"><strong>🛡️ Penasihat Utama</strong><br>Mu'adz Ibnu Muhammad</p>
-                    <p style="font-size: 1rem; margin: 1rem 0 0 0;"><strong>💻 Kepala Staf</strong><br>Basyir Priciano</p>
-                </div>
-            </div>
-
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-                <div style="background: white; padding: 2rem; border-radius: 10px; border-left: 4px solid #d4af37; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #d4af37; margin-bottom: 1rem;">⚖️ Majelis Syura' Asosiasi Siswa</h3>
-                    <ul style="list-style: none; color: #333;">
-                        <li style="padding: 0.5rem 0;"><strong>✓ Hasan Zaher</strong></li>
-                        <li style="padding: 0.5rem 0;"><strong>✓ Adwa Wicaksono Hirsam</strong></li>
-                        <li style="padding: 0.5rem 0;"><strong>✓ Muhammad</strong></li>
-                        <li style="padding: 0.5rem 0;"><strong>✓ Salman Al-Farisi</strong></li>
-                    </ul>
-                </div>
-
-                <div style="background: white; padding: 2rem; border-radius: 10px; border-left: 4px solid #d4af37; box-shadow: 0 3px 10px rgba(0,0,0,0.1);">
-                    <h3 style="color: #d4af37; margin-bottom: 1rem;">👥 Tim Staf ASIS</h3>
-                    <ul style="list-style: none; color: #333; font-size: 0.95rem;">
-                        <li style="padding: 0.5rem 0;"><strong>Basyir Priciano</strong><br><span style="color: #666;">Kepala Staf</span></li>
-                        <li style="padding: 0.5rem 0;"><strong>Rahmat Aulia Razan Prawira</strong><br><span style="color: #666;">Staf Humas (Prabakti)</span></li>
-                        <li style="padding: 0.5rem 0;"><strong>Fritz Zabeer</strong><br><span style="color: #666;">Staf Khusus Program English/Arabic Day</span></li>
-                        <li style="padding: 0.5rem 0;"><strong>Athallah Lintang Ahmad</strong><br><span style="color: #666;">Staf Data & Informasi</span></li>
-                        <li style="padding: 0.5rem 0;"><strong>Abdullah Zhafran Elraihan</strong><br><span style="color: #666;">Staf Data & Informasi</span></li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -614,52 +484,21 @@
     <section class="pengumuman" id="pengumuman">
         <div class="container">
             <h2>📢 Pengumuman</h2>
-            
-            <!-- English/Arabic Day Featured -->
-            <div style="background: linear-gradient(135deg, #d4af37 0%, #f0c041 100%); color: #1a1a1a; padding: 2rem; border-radius: 15px; margin-bottom: 2rem; text-align: center;">
-                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🌍 English/Arabic Day Program</h3>
-                <p style="font-size: 1.1rem; margin-bottom: 1.5rem; line-height: 1.8;">Ayo, ramaikan program English/Arabic Day! 🎉</p>
-                
-                <div style="background: white; padding: 1.5rem; border-radius: 10px; margin: 1rem 0; color: #333;">
-                    <p style="margin-bottom: 1rem; line-height: 1.8;">Pada hari Arabic atau English Day, seluruh anggota ASIS dianjurkan untuk menggunakan bahasa <strong>Arab / Inggris</strong> ketika mengobrol!</p>
-                    <p style="font-style: italic; color: #666;">Seru, kan? Ayo bantu ramaikan program ini!</p>
-                </div>
-
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
-                    <div style="background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 10px;">
-                        <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">📘 English Day</p>
-                        <p style="font-weight: bold; color: #1a1a1a; font-size: 1.1rem;">Selasa</p>
-                    </div>
-                    <div style="background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 10px;">
-                        <p style="font-size: 1.3rem; margin-bottom: 0.5rem;">📗 Arabic Day</p>
-                        <p style="font-weight: bold; color: #1a1a1a; font-size: 1.1rem;">Kamis</p>
-                    </div>
-                </div>
-
-                <div style="background: rgba(255,255,255,0.7); padding: 1.5rem; border-radius: 10px; text-align: left; margin-top: 1rem;">
-                    <p style="font-weight: bold; margin-bottom: 1rem; text-align: center;">📋 Ketentuan Program:</p>
-                    <ul style="text-align: left; color: #333; margin-left: 1.5rem;">
-                        <li style="margin: 0.7rem 0;">Setiap English / Arabic Day, seluruh anggota Asosiasi Siswa Homeschooling Imam Nawawi di group WA <strong>dianjurkan untuk mengobrol</strong> dengan bahasa <strong>Inggris atau Arab!</strong></li>
-                        <li style="margin: 0.7rem 0;">Bagi yang <strong>tidak bisa atau kesulitan</strong> berkomunikasi pakai bahasa Inggris atau Arab, maka bisa <strong>meminta bantuan</strong> kepada sesama temannya, ya!</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="announcements-grid">
+            <div class="announcements-grid" id="pengumumanContainer">
                 <div class="announcement-card">
-                    <div class="date">Kategori: Program</div>
-                    <h3>Arabic-English Day 2024</h3>
-                    <p>ASIS dengan bangga mempersembahkan Arabic-English Day, program unggulan yang menggabungkan pembelajaran bahasa Arab dan Inggris dalam aktivitas interaktif dan menyenangkan. Kesempatan terbatas untuk mendalami dua bahasa sekaligus!</p>
+                    <div class="date">25 November 2024</div>
+                    <h3>Workshop Persiapan Ujian Matematika</h3>
+                    <p>Klub Matematika mengadakan workshop intensif untuk persiapan ujian akhir semester. Materi mencakup aljabar, geometri, dan statistika. Daftar sekarang untuk mendapatkan tempat terbatas!</p>
                 </div>
                 <div class="announcement-card">
-                    <div class="date">Kategori: Klub</div>
-                    <h3>Workshop Persiapan Kompetisi Matematika</h3>
-                    <p>Klub Matematika mengadakan workshop intensif untuk persiapan kompetisi tingkat regional. Materi mencakup problem solving strategi, teknik cepat, dan latihan soal-soal kompetisi. Daftar sekarang untuk tempat terbatas!</p>
+                    <div class="date">20 November 2024</div>
+                    <h3>Speaking Practice Session Bahasa Inggris</h3>
+                    <p>Klub Bahasa Inggris mengundang native speaker untuk sesi speaking practice. Kesempatan terbatas untuk meningkatkan kemampuan komunikasi dalam bahasa Inggris secara langsung.</p>
                 </div>
                 <div class="announcement-card">
-                    <div class="date">Kategori: Klub</div>
-                    <h3>Speaking Practice dengan Native Speaker</h3>
-                    <p>Klub Bahasa Inggris mengadakan sesi speaking practice bersama native speaker. Kesempatan emas untuk meningkatkan kemampuan komunikasi dan mengenal budaya berbahasa Inggris secara langsung. Pendaftaran dibuka!</p>
+                    <div class="date">15 November 2024</div>
+                    <h3>Kompetisi Matematika Antar Siswa</h3>
+                    <p>Pendaftaran dibuka untuk kompetisi matematika tingkat internal ASIS. Hadiah menarik menanti para pemenang. Buktikan kemampuan matematikamu!</p>
                 </div>
             </div>
         </div>
@@ -673,302 +512,77 @@
                 <div class="club-card">
                     <div class="club-icon">📐</div>
                     <h3>Klub Matematika</h3>
-                    <p>Komunitas untuk mengembangkan kemampuan matematis siswa SMP Kelas 7-8 melalui diskusi mendalam, problem solving, kompetisi, dan latihan soal-soal berkualitas. Kami membantu siswa menguasai konsep fundamental hingga advanced problem solving.</p>
+                    <p>Komunitas untuk mengembangkan kemampuan matematis melalui diskusi, problem solving, dan kompetisi. Kami percaya bahwa matematika adalah seni berpikir logis.</p>
                     <div class="club-details">
-                        <strong>🎯 Target & Materi</strong>
-                        <ul style="margin: 0.5rem 0 0 1rem; color: white;">
-                            <li>SMP Kelas 7-8</li>
-                            <li>Aljabar & Geometri</li>
-                            <li>Statistika & Probabilitas</li>
-                            <li>Problem Solving & Persiapan Kompetisi</li>
-                        </ul>
-                        <strong style="display: block; margin-top: 1rem;">👥 Tim Pembimbing</strong>
-                        <strong style="display: block; margin-top: 0.5rem;">📍 Lokasi: Online via Google Meet</strong>
+                        <strong>🗓️ Jadwal: Setiap Kamis, 16:00-17:30</strong>
+                        <strong>👥 Pembimbing: Ibu Siti & Pak Budi</strong>
+                        <strong>📍 Lokasi: Ruang Belajar A</strong>
+                        <strong>📚 Topik: Aljabar, Geometri, Statistika, Kalkulus</strong>
                     </div>
                 </div>
                 <div class="club-card">
                     <div class="club-icon">🌍</div>
                     <h3>Klub Bahasa Inggris</h3>
-                    <p>Pengembangan keterampilan berbahasa Inggris siswa SMP Kelas 7-8 yang komprehensif meliputi speaking, listening, reading, dan writing. Program ini mempersiapkan siswa untuk komunikasi global dan ujian internasional.</p>
+                    <p>Pengembangan keterampilan berbahasa Inggris melalui percakapan, membaca, menulis, dan mendengarkan. Persiapan untuk ujian internasional dan komunikasi global.</p>
                     <div class="club-details">
-                        <strong>🎯 Target & Materi</strong>
-                        <ul style="margin: 0.5rem 0 0 1rem; color: white;">
-                            <li>SMP Kelas 7-8</li>
-                            <li>Speaking & Pronunciation</li>
-                            <li>Grammar & Vocabulary</li>
-                            <li>Reading Comprehension & Writing Skills</li>
-                        </ul>
-                        <strong style="display: block; margin-top: 1rem;">👥 Tim Pembimbing</strong>
-                        <strong style="display: block; margin-top: 0.5rem;">📍 Lokasi: Online via Google Meet</strong>
+                        <strong>🗓️ Jadwal: Setiap Selasa, 16:00-17:30</strong>
+                        <strong>👥 Pembimbing: Pak Ahmad & Miss Sarah</strong>
+                        <strong>📍 Lokasi: Ruang Bahasa</strong>
+                        <strong>📚 Fokus: Speaking, Writing, Grammar, Reading</strong>
                     </div>
                 </div>
-            </div>
-
-            <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid #d4af37; border-radius: 10px; padding: 2rem; margin-top: 3rem; text-align: center;">
-                <h3 style="color: #d4af37; margin-bottom: 1rem;">🌟 Program Unggulan</h3>
-                <p style="color: #333; margin: 0.5rem 0;"><strong>Arabic-English Day</strong></p>
-                <p style="color: #666; line-height: 1.6;">Program unggulan ASIS yang menggabungkan pembelajaran bahasa Arab dan Inggris dalam satu kegiatan interaktif. Membangun lingkungan multilingual dan memperkaya pemahaman akan dua bahasa penting dalam kehidupan modern.</p>
             </div>
         </div>
     </section>
 
-    <!-- Gamification Section -->
-    <section class="gamification" id="gamifikasi" style="background: #f8f9fa;">
+    <!-- Gamifikasi Section -->
+    <section class="gamifikasi" id="gamifikasi">
         <div class="container">
             <h2>🎮 Sistem Gamifikasi ASIS</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Raih poin, badge, dan posisi teratas di klub favoritmu!</p>
-
-            <!-- Tabs untuk Matematika dan Bahasa Inggris -->
-            <div style="display: flex; gap: 1rem; margin-bottom: 2rem; justify-content: center; flex-wrap: wrap;">
-                <button onclick="showTab('math')" id="btn-math" style="padding: 12px 30px; background: #d4af37; color: #1a1a1a; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
-                    📐 Klub Matematika
-                </button>
-                <button onclick="showTab('english')" id="btn-english" style="padding: 12px 30px; background: white; color: #333; border: 2px solid #d4af37; border-radius: 5px; font-weight: bold; cursor: pointer; transition: all 0.3s;">
-                    🌍 Klub Bahasa Inggris
-                </button>
+            
+            <div style="display: flex; gap: 1rem; margin: 2rem 0; justify-content: center; flex-wrap: wrap;">
+                <button id="btn-math" onclick="showTab('math')" style="padding: 12px 24px; border: 2px solid #ddd; background: #d4af37; color: #1a1a1a; border-radius: 8px; cursor: pointer; font-weight: bold; border-color: #d4af37;">📐 Matematika</button>
+                <button id="btn-english" onclick="showTab('english')" style="padding: 12px 24px; border: 2px solid #d4af37; background: white; color: #333; border-radius: 8px; cursor: pointer; font-weight: bold;">🌍 Bahasa Inggris</button>
             </div>
 
-            <!-- Matematika Tab -->
-            <div id="tab-math" class="tab-content" style="display: block;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <!-- Poin & Badge -->
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-top: 4px solid #d4af37;">
-                        <h3 style="color: #d4af37; margin-bottom: 1rem; text-align: center;">🏆 Sistem Poin Matematika</h3>
-                        <div style="text-align: center; margin: 1.5rem 0;">
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Aktivitas Poin</p>
-                            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; font-size: 0.85rem;">
-                                <p>✓ Mengikuti Klub: <strong>10 poin</strong></p>
-                                <p>✓ Mengerjakan Soal: <strong>5 poin/soal</strong></p>
-                                <p>✓ Kompetisi Internal: <strong>50-200 poin</strong></p>
-                                <p>✓ Membantu Teman: <strong>15 poin</strong></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Badge & Achievements -->
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-top: 4px solid #d4af37;">
-                        <h3 style="color: #d4af37; margin-bottom: 1rem; text-align: center;">🎖️ Badge Pencapaian</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">⭐</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Pemula</strong><br>100 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🥈</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Master</strong><br>500 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🥇</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Legend</strong><br>1000 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">👑</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Champion</strong><br>2000 Poin</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Leaderboard Matematika -->
-                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 4px solid #d4af37;">
-                    <h3 style="color: #d4af37; margin-bottom: 1.5rem;">🏅 Top 10 Leaderboard - Matematika</h3>
-                    <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white;">
-                                    <th style="padding: 1rem; text-align: left;">#</th>
-                                    <th style="padding: 1rem; text-align: left;">Nama Siswa</th>
-                                    <th style="padding: 1rem; text-align: center;">Poin</th>
-                                    <th style="padding: 1rem; text-align: center;">Level</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid #eee; background: rgba(212, 175, 55, 0.05);">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥇 1</td>
-                                    <td style="padding: 1rem;">Muhammad Fahreza</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">2450</td>
-                                    <td style="padding: 1rem; text-align: center;">👑 Champion</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥈 2</td>
-                                    <td style="padding: 1rem;">Rizki Pratama</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">1980</td>
-                                    <td style="padding: 1rem; text-align: center;">🥇 Legend</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥉 3</td>
-                                    <td style="padding: 1rem;">Hasan Zaher</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">1750</td>
-                                    <td style="padding: 1rem; text-align: center;">🥇 Legend</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">4</td>
-                                    <td style="padding: 1rem;">Ahmad Najib</td>
-                                    <td style="padding: 1rem; text-align: center;">1420</td>
-                                    <td style="padding: 1rem; text-align: center;">🥈 Master</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">5</td>
-                                    <td style="padding: 1rem;">Budi Santoso</td>
-                                    <td style="padding: 1rem; text-align: center;">1280</td>
-                                    <td style="padding: 1rem; text-align: center;">🥈 Master</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">6</td>
-                                    <td style="padding: 1rem;">Aldi Hermawan</td>
-                                    <td style="padding: 1rem; text-align: center;">1150</td>
-                                    <td style="padding: 1rem; text-align: center;">🥈 Master</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">7</td>
-                                    <td style="padding: 1rem;">Salman Al-Farisi</td>
-                                    <td style="padding: 1rem; text-align: center;">980</td>
-                                    <td style="padding: 1rem; text-align: center;">⭐ Pemula</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">8</td>
-                                    <td style="padding: 1rem;">Dimas Yudanto</td>
-                                    <td style="padding: 1rem; text-align: center;">850</td>
-                                    <td style="padding: 1rem; text-align: center;">⭐ Pemula</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">9</td>
-                                    <td style="padding: 1rem;">Rendra Kusuma</td>
-                                    <td style="padding: 1rem; text-align: center;">750</td>
-                                    <td style="padding: 1rem; text-align: center;">⭐ Pemula</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">10</td>
-                                    <td style="padding: 1rem;">Imam Setiawan</td>
-                                    <td style="padding: 1rem; text-align: center;">680</td>
-                                    <td style="padding: 1rem; text-align: center;">⭐ Pemula</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <!-- Tab Matematika -->
+            <div id="tab-math" style="display: block;">
+                <h3 style="text-align: center; color: #d4af37; margin-bottom: 2rem;">📐 Leaderboard Klub Matematika</h3>
+                <table style="width: 100%; border-collapse: collapse; background: white;">
+                    <thead style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white;">
+                        <tr>
+                            <th style="padding: 1rem; text-align: left;">#</th>
+                            <th style="padding: 1rem; text-align: left;">Nama Siswa</th>
+                            <th style="padding: 1rem; text-align: center;">Poin</th>
+                            <th style="padding: 1rem; text-align: center;">Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardMathBody">
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 2rem; color: #999;">Loading data dari Admin Panel...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <!-- Bahasa Inggris Tab -->
-            <div id="tab-english" class="tab-content" style="display: none;">
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
-                    <!-- Poin & Badge -->
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-top: 4px solid #d4af37;">
-                        <h3 style="color: #d4af37; margin-bottom: 1rem; text-align: center;">🏆 Sistem Poin Bahasa Inggris</h3>
-                        <div style="text-align: center; margin: 1.5rem 0;">
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">Aktivitas Poin</p>
-                            <div style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white; padding: 1rem; border-radius: 8px; margin: 0.5rem 0; font-size: 0.85rem;">
-                                <p>✓ Mengikuti Klub: <strong>10 poin</strong></p>
-                                <p>✓ Speaking Practice: <strong>15 poin/sesi</strong></p>
-                                <p>✓ Mengerjakan Quiz: <strong>8 poin/quiz</strong></p>
-                                <p>✓ Aktif Diskusi: <strong>10 poin</strong></p>
-                                <p>✓ Speaking Event: <strong>50-150 poin</strong></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Badge & Achievements -->
-                    <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-top: 4px solid #d4af37;">
-                        <h3 style="color: #d4af37; margin-bottom: 1rem; text-align: center;">🎖️ Badge Pencapaian</h3>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1rem;">
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌱</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Learner</strong><br>80 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌿</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Speaker</strong><br>400 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌳</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Fluent</strong><br>900 Poin</p>
-                            </div>
-                            <div style="text-align: center; padding: 1rem; background: #f0f0f0; border-radius: 8px;">
-                                <div style="font-size: 2rem; margin-bottom: 0.5rem;">🏆</div>
-                                <p style="font-size: 0.85rem; color: #333;"><strong>Expert</strong><br>1800 Poin</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Leaderboard Bahasa Inggris -->
-                <div style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); border-left: 4px solid #d4af37;">
-                    <h3 style="color: #d4af37; margin-bottom: 1.5rem;">🏅 Top 10 Leaderboard - Bahasa Inggris</h3>
-                    <div style="overflow-x: auto;">
-                        <table style="width: 100%; border-collapse: collapse;">
-                            <thead>
-                                <tr style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white;">
-                                    <th style="padding: 1rem; text-align: left;">#</th>
-                                    <th style="padding: 1rem; text-align: left;">Nama Siswa</th>
-                                    <th style="padding: 1rem; text-align: center;">Poin</th>
-                                    <th style="padding: 1rem; text-align: center;">Level</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr style="border-bottom: 1px solid #eee; background: rgba(212, 175, 55, 0.05);">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥇 1</td>
-                                    <td style="padding: 1rem;">Sarim Wiradi</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">2180</td>
-                                    <td style="padding: 1rem; text-align: center;">🏆 Expert</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥈 2</td>
-                                    <td style="padding: 1rem;">David Kusuma</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">1890</td>
-                                    <td style="padding: 1rem; text-align: center;">🌳 Fluent</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem; font-weight: bold; color: #d4af37;">🥉 3</td>
-                                    <td style="padding: 1rem;">Miftah Saukhani</td>
-                                    <td style="padding: 1rem; text-align: center; font-weight: bold;">1620</td>
-                                    <td style="padding: 1rem; text-align: center;">🌳 Fluent</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">4</td>
-                                    <td style="padding: 1rem;">Adwa Wicaksono</td>
-                                    <td style="padding: 1rem; text-align: center;">1450</td>
-                                    <td style="padding: 1rem; text-align: center;">🌿 Speaker</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">5</td>
-                                    <td style="padding: 1rem;">Nasir Pratama</td>
-                                    <td style="padding: 1rem; text-align: center;">1320</td>
-                                    <td style="padding: 1rem; text-align: center;">🌿 Speaker</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">6</td>
-                                    <td style="padding: 1rem;">Gunawan Rahman</td>
-                                    <td style="padding: 1rem; text-align: center;">1180</td>
-                                    <td style="padding: 1rem; text-align: center;">🌿 Speaker</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">7</td>
-                                    <td style="padding: 1rem;">Fitra Harahap</td>
-                                    <td style="padding: 1rem; text-align: center;">950</td>
-                                    <td style="padding: 1rem; text-align: center;">🌱 Learner</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">8</td>
-                                    <td style="padding: 1rem;">Luthfi Mardika</td>
-                                    <td style="padding: 1rem; text-align: center;">820</td>
-                                    <td style="padding: 1rem; text-align: center;">🌱 Learner</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">9</td>
-                                    <td style="padding: 1rem;">Hendri Sutrisno</td>
-                                    <td style="padding: 1rem; text-align: center;">720</td>
-                                    <td style="padding: 1rem; text-align: center;">🌱 Learner</td>
-                                </tr>
-                                <tr style="border-bottom: 1px solid #eee;">
-                                    <td style="padding: 1rem;">10</td>
-                                    <td style="padding: 1rem;">Riyanto Wijaya</td>
-                                    <td style="padding: 1rem; text-align: center;">650</td>
-                                    <td style="padding: 1rem; text-align: center;">🌱 Learner</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <!-- Tab English -->
+            <div id="tab-english" style="display: none;">
+                <h3 style="text-align: center; color: #d4af37; margin-bottom: 2rem;">🌍 Leaderboard Klub Bahasa Inggris</h3>
+                <table style="width: 100%; border-collapse: collapse; background: white;">
+                    <thead style="background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%); color: white;">
+                        <tr>
+                            <th style="padding: 1rem; text-align: left;">#</th>
+                            <th style="padding: 1rem; text-align: left;">Nama Siswa</th>
+                            <th style="padding: 1rem; text-align: center;">Poin</th>
+                            <th style="padding: 1rem; text-align: center;">Level</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboardEnglishBody">
+                        <tr>
+                            <td colspan="4" style="text-align: center; padding: 2rem; color: #999;">Loading data dari Admin Panel...</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -979,41 +593,34 @@
             <h2>📚 Resource Pembelajaran</h2>
             <div class="resources-grid">
                 <div class="resource-card">
-                    <div class="resource-icon">🎮</div>
-                    <h3>Game Matematika</h3>
-                    <p>Game quiz interaktif untuk menguji kemampuan matematika SMP Kelas 7-8. 10 soal menarik dengan scoring dan feedback langsung.</p>
-                    <button onclick="window.location.href='game_matematika.html'">Main Game</button>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">🎮</div>
-                    <h3>Game Bahasa Inggris</h3>
-                    <p>Game pembelajaran bahasa Inggris interaktif untuk SMP Kelas 7-8. Vocabulary dan grammar dalam format quiz yang menyenangkan.</p>
-                    <button onclick="window.location.href='game_bahasa_inggris.html'">Main Game</button>
-                </div>
-                <div class="resource-card">
                     <div class="resource-icon">📖</div>
-                    <h3>Materi Matematika</h3>
-                    <p>Koleksi materi pembelajaran matematika yang komprehensif, dari konsep dasar hingga advanced problem solving untuk persiapan akademik dan kompetisi.</p>
-                </div>
-                <div class="resource-card">
-                    <div class="resource-icon">🌐</div>
-                    <h3>Modul Bahasa Inggris</h3>
-                    <p>Paket pembelajaran bahasa Inggris lengkap mencakup grammar, vocabulary, speaking tips, dan reading comprehension untuk meningkatkan kemampuan berkomunikasi.</p>
+                    <h3>Materi Pembelajaran</h3>
+                    <p>Akses ribuan materi pembelajaran dari dua klub unggulan kami. Dari teori dasar hingga tingkat lanjut, semua tersedia untuk mendukung belajarmu.</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">🎥</div>
                     <h3>Video Tutorial</h3>
-                    <p>Koleksi video tutorial interaktif dari kedua klub kami. Tonton kapan saja sesuai kecepatan belajarmu dengan penjelasan yang detail dan mudah dipahami.</p>
+                    <p>Koleksi video tutorial interaktif yang memudahkan pemahaman konsep. Ditonton kapan saja dan dimana saja sesuai kecepatan belajarmu.</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">❓</div>
-                    <h3>Bank Soal & Pembahasan</h3>
-                    <p>Ribuan soal latihan dengan pembahasan detail untuk matematika dan bahasa Inggris. Mulai dari latihan dasar hingga soal-soal tingkat kompetisi internasional.</p>
+                    <h3>Soal & Pembahasan</h3>
+                    <p>Bank soal lengkap dengan pembahasan detail untuk persiapan ujian. Mulai dari latihan dasar hingga soal-soal tingkat kompetisi.</p>
                 </div>
                 <div class="resource-card">
                     <div class="resource-icon">💬</div>
                     <h3>Forum Diskusi</h3>
-                    <p>Ruang diskusi aktif untuk bertanya, berbagi insight, dan belajar bersama. Mentor dan anggota siap membantu kesulitan belajarmu kapan saja.</p>
+                    <p>Tanyakan pertanyaanmu dan diskusikan dengan sesama anggota. Berbagi tips dan strategi belajar yang efektif untuk kesuksesan bersama.</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">🏆</div>
+                    <h3>Arsip Kompetisi</h3>
+                    <p>Kumpulan soal-soal kompetisi dari ajang internasional dan nasional. Tingkatkan level kompetisimu dengan mempelajari soal-soal berkualitas tinggi.</p>
+                </div>
+                <div class="resource-card">
+                    <div class="resource-icon">👨‍🏫</div>
+                    <h3>Konsultasi Mentor</h3>
+                    <p>Dapatkan bimbingan langsung dari mentor berpengalaman. Sesi konsultasi tersedia untuk membantu mengatasi kesulitan belajarmu.</p>
                 </div>
             </div>
         </div>
@@ -1026,32 +633,19 @@
             <div class="contact-content">
                 <div class="contact-item">
                     <h3>📧 Email</h3>
-                    <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6b0818450a18021845031802052b0c060a020745080406">[email&#160;protected]</a></p>
-                    <p style="font-size: 0.9rem; opacity: 0.8;"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f89795998a9994919ec9c8b89f95999194d69b9795">[email&#160;protected]</a></p>
+                    <p>info@asis-imamnawawi.id</p>
+                    <p>matematika@asis-imamnawawi.id</p>
+                    <p>english@asis-imamnawawi.id</p>
                 </div>
                 <div class="contact-item">
-                    <h3>📱 WhatsApp / Telepon</h3>
-                    <p>+62 853-6653-2685</p>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">Muhammad Omar Alif (Ketua)</p>
+                    <h3>📱 WhatsApp</h3>
+                    <p>+62 812-3456-7890</p>
+                    <p>Admin: Ibu Nur</p>
                 </div>
                 <div class="contact-item">
                     <h3>📍 Lokasi</h3>
-                    <p>Homeschooling Imam Nawawi</p>
-                    <p>Ciomas, Bogor</p>
-                </div>
-            </div>
-
-            <div style="background: rgba(212, 175, 55, 0.1); border: 2px solid #d4af37; border-radius: 10px; padding: 2rem; margin: 2rem 0; text-align: center;">
-                <h3 style="color: #d4af37; margin-bottom: 1.5rem;">📱 Ikuti Media Sosial ASIS</h3>
-                <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
-                    <div>
-                        <p style="color: white; font-weight: bold; margin-bottom: 0.5rem;">📸 Instagram</p>
-                        <p style="color: #d4af37; font-size: 1.1rem;"><strong>@asosisasi.siswa.hsin_</strong></p>
-                    </div>
-                    <div>
-                        <p style="color: white; font-weight: bold; margin-bottom: 0.5rem;">💬 Email</p>
-                        <p style="color: #d4af37; font-size: 1.1rem;"><strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f2c3c612e3c263c61273c26210f28222e2623612c2022">[email&#160;protected]</a></strong></p>
-                    </div>
+                    <p>Pesantren Imam Nawawi</p>
+                    <p>Jakarta Selatan</p>
                 </div>
             </div>
 
@@ -1060,15 +654,15 @@
                 <form onsubmit="handleSubmit(event)">
                     <div class="form-group">
                         <label for="nama">Nama Lengkap</label>
-                        <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap Anda" required>
+                        <input type="text" id="nama" name="nama" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                        <input type="email" id="email" name="email" required>
                     </div>
                     <div class="form-group">
                         <label for="pesan">Pesan</label>
-                        <textarea id="pesan" name="pesan" placeholder="Tulis pesan Anda di sini..." required></textarea>
+                        <textarea id="pesan" name="pesan" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
                 </form>
@@ -1078,20 +672,15 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 ASIS - Asosiasi Siswa Homeschooling Imam Nawawi Ciomas Bogor</p>
+        <p>&copy; 2025 ASIS - Asosiasi Siswa Homeschooling Imam Nawawi. Semua hak cipta dilindungi.</p>
         <p>Membangun generasi yang beradab, kreatif, produktif, dan harmonis</p>
-        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">📱 Instagram: @asosisasi.siswa.hsin_ | 📧 <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4427376a25372d376a2c372d2a042329252d286a272b29">[email&#160;protected]</a></p>
-        <p style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">📞 WhatsApp: +62 853-6653-2685</p>
-        <p style="font-size: 0.85rem; margin-top: 1rem; opacity: 0.7; border-top: 1px solid rgba(212, 175, 55, 0.3); padding-top: 1rem;">
-            <strong>Web Developer:</strong> Athallah Lintang Ahmad | Staf Pengelola Data & Informasi<br>
-            <strong>Program:</strong> Humas Majelis Syura' Asosiasi Siswa
-        </p>
+        <p style="font-size: 0.9rem; margin-top: 1rem; opacity: 0.8;">📱 Instagram: @asosisasi.siswa.hsin_ | 📧 cs.asis.hsin@gmail.com | 📞 +62 853-6653-2685</p>
         <p style="font-size: 0.8rem; margin-top: 1rem; opacity: 0.5;">
             <a href="admin_panel.html" style="color: #d4af37; text-decoration: none;">⚙️ Admin Panel</a>
         </p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         function handleSubmit(event) {
             event.preventDefault();
             const nama = document.getElementById('nama').value;
@@ -1104,12 +693,112 @@
             event.target.reset();
         }
 
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===== INTEGRASI ADMIN PANEL - SYNC DATA =====
+        function loadPengumumanFromAdmin() {
+            try {
+                const data = localStorage.getItem('asisData');
+                if (!data) return;
+
+                const parsed = JSON.parse(data);
+                const pengumuman = parsed.pengumuman || [];
+                
+                if (pengumuman.length > 0) {
+                    const container = document.getElementById('pengumumanContainer');
+                    const html = pengumuman.map(item => `
+                        <div class="announcement-card">
+                            <div class="date">Kategori: ${item.kategori}</div>
+                            <h3>${item.judul}</h3>
+                            <p>${item.isi}</p>
+                        </div>
+                    `).join('');
+                    container.innerHTML = html;
+                    console.log('✅ Pengumuman loaded:', pengumuman.length, 'items');
+                }
+            } catch (e) {
+                console.log('Error loading pengumuman:', e);
+            }
+        }
+
+        function loadLeaderboardFromAdmin() {
+            try {
+                const data = localStorage.getItem('asisData');
+                if (!data) return;
+
+                const parsed = JSON.parse(data);
+                
+                // Load Leaderboard Matematika
+                const mathData = parsed.leaderboardMath || [];
+                if (mathData.length > 0) {
+                    const mathBody = document.getElementById('leaderboardMathBody');
+                    const html = mathData.map((item, index) => {
+                        const level = getLeaderboardLevel(item.poin, 'math');
+                        return `
+                            <tr style="border-bottom: 1px solid #eee; ${index < 3 ? 'background: rgba(212, 175, 55, 0.05);' : ''}">
+                                <td style="padding: 1rem; font-weight: bold; color: #d4af37;">${index === 0 ? '🥇 1' : index === 1 ? '🥈 2' : index === 2 ? '🥉 3' : index + 1}</td>
+                                <td style="padding: 1rem;">${item.nama}</td>
+                                <td style="padding: 1rem; text-align: center; font-weight: bold;">${item.poin}</td>
+                                <td style="padding: 1rem; text-align: center;">${level}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                    mathBody.innerHTML = html;
+                    console.log('✅ Leaderboard Matematika loaded:', mathData.length, 'items');
+                }
+
+                // Load Leaderboard Bahasa Inggris
+                const englishData = parsed.leaderboardEnglish || [];
+                if (englishData.length > 0) {
+                    const englishBody = document.getElementById('leaderboardEnglishBody');
+                    const html = englishData.map((item, index) => {
+                        const level = getLeaderboardLevel(item.poin, 'english');
+                        return `
+                            <tr style="border-bottom: 1px solid #eee; ${index < 3 ? 'background: rgba(212, 175, 55, 0.05);' : ''}">
+                                <td style="padding: 1rem; font-weight: bold; color: #d4af37;">${index === 0 ? '🥇 1' : index === 1 ? '🥈 2' : index === 2 ? '🥉 3' : index + 1}</td>
+                                <td style="padding: 1rem;">${item.nama}</td>
+                                <td style="padding: 1rem; text-align: center; font-weight: bold;">${item.poin}</td>
+                                <td style="padding: 1rem; text-align: center;">${level}</td>
+                            </tr>
+                        `;
+                    }).join('');
+                    englishBody.innerHTML = html;
+                    console.log('✅ Leaderboard Bahasa Inggris loaded:', englishData.length, 'items');
+                }
+            } catch (e) {
+                console.log('Error loading leaderboard:', e);
+            }
+        }
+
+        function getLeaderboardLevel(poin, type) {
+            if (type === 'math') {
+                if (poin >= 2000) return '👑 Champion';
+                if (poin >= 1000) return '🥇 Legend';
+                if (poin >= 500) return '🥈 Master';
+                return '⭐ Pemula';
+            } else {
+                if (poin >= 1800) return '🏆 Expert';
+                if (poin >= 900) return '🌳 Fluent';
+                if (poin >= 400) return '🌿 Speaker';
+                return '🌱 Learner';
+            }
+        }
+
         function showTab(tab) {
-            // Hide all tabs
             document.getElementById('tab-math').style.display = 'none';
             document.getElementById('tab-english').style.display = 'none';
             
-            // Show selected tab
             if (tab === 'math') {
                 document.getElementById('tab-math').style.display = 'block';
                 document.getElementById('btn-math').style.background = '#d4af37';
@@ -1120,4 +809,36 @@
                 document.getElementById('btn-english').style.border = '2px solid #d4af37';
             } else {
                 document.getElementById('tab-english').style.display = 'block';
-                document.getElementById('btn-english')
+                document.getElementById('btn-english').style.background = '#d4af37';
+                document.getElementById('btn-english').style.color = '#1a1a1a';
+                document.getElementById('btn-english').style.border = 'none';
+                document.getElementById('btn-math').style.background = 'white';
+                document.getElementById('btn-math').style.color = '#333';
+                document.getElementById('btn-math').style.border = '2px solid #d4af37';
+            }
+        }
+
+        // Load data saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 Page loaded, syncing data from Admin Panel...');
+            loadPengumumanFromAdmin();
+            loadLeaderboardFromAdmin();
+
+            // Auto-refresh setiap 2 detik untuk real-time update
+            setInterval(function() {
+                loadPengumumanFromAdmin();
+                loadLeaderboardFromAdmin();
+            }, 2000);
+        });
+
+        // Listen untuk storage changes dari tab lain (cross-tab sync)
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'asisData') {
+                console.log('🔄 Data changed in Admin Panel, updating...');
+                loadPengumumanFromAdmin();
+                loadLeaderboardFromAdmin();
+            }
+        });
+    </script>
+</body>
+</html>
