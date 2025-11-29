@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Matematika ASIS - SMP Kelas 7-8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            padding: 2rem;
+            max-width: 700px;
+            width: 100%;
+            border-top: 4px solid #d4af37;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .header h1 {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .game-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-box {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-box .label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .value {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .question-container {
+            margin-bottom: 2rem;
+        }
+
+        .question-number {
+            color: #d4af37;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .question-text {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .option {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            color: #333;
+            text-align: left;
+            font-weight: 500;
+        }
+
+        .option:hover {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .option.selected {
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.15);
+        }
+
+        .option.correct {
+            border-color: #4caf50;
+            background: rgba(76, 175, 80, 0.15);
+            color: #2e7d32;
+        }
+
+        .option.incorrect {
+            border-color: #f44336;
+            background: rgba(244, 67, 54, 0.15);
+            color: #c62828;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+        .btn-submit {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            background: #f0c041;
+            transform: translateY(-2px);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .btn-reset {
+            background: #666;
+            color: white;
+        }
+
+        .btn-reset:hover {
+            background: #555;
+        }
+
+        .result-message {
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: bold;
+            display: none;
+        }
+
+        .result-message.show {
+            display: block;
+        }
+
+        .result-message.correct {
+            background: rgba(76, 175, 80, 0.2);
+            color: #2e7d32;
+        }
+
+        .result-message.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            color: #c62828;
+        }
+
+        .results-page {
+            display: none;
+            text-align: center;
+        }
+
+        .results-page.show {
+            display: block;
+        }
+
+        .final-score {
+            font-size: 3rem;
+            color: #d4af37;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .score-message {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+
+        .score-details {
+            background: linear-gradient(135deg, #1a1a1a 0%, #3d3d3d 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .score-details p {
+            margin: 0.5rem 0;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 1.5rem;
+            }
+
+            .header h1 {
+                font-size: 1.5rem;
+            }
+
+            .game-stats {
+                grid-template-columns: 1fr;
+            }
+
+            button {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📐 Game Matematika ASIS</h1>
+            <p>SMP Kelas 7-8 | Uji Kemampuanmu!</p>
+        </div>
+
+        <div id="gamePage">
+            <div class="game-stats">
+                <div class="stat-box">
+                    <div class="label">Soal</div>
+                    <div class="value"><span id="currentQuestion">1</span>/<span id="totalQuestions">10</span></div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">Poin</div>
+                    <div class="value" id="score">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="label">Benar</div>
+                    <div class="value" id="correct">0</div>
+                </div>
+            </div>
+
+            <div class="result-message" id="resultMessage"></div>
+
+            <div class="question-container">
+                <div class="question-number" id="questionNumber">Soal 1 dari 10</div>
+                <div class="question-text" id="questionText">Loading...</div>
+                <div class="options" id="optionsContainer"></div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-submit" id="submitBtn" onclick="submitAnswer()">Jawab</button>
+                <button class="btn-reset" onclick="resetGame()">Reset</button>
+            </div>
+        </div>
+
+        <div id="resultsPage" class="results-page">
+            <h2 style="color: #d4af37; margin-bottom: 1rem;">🎉 Selesai!</h2>
+            <div class="final-score" id="finalScore">0/10</div>
+            <div class="score-message" id="scoreMessage">Excellent!</div>
+            
+            <div class="score-details">
+                <p>✓ <strong>Jawaban Benar:</strong> <span id="finalCorrect">0</span></p>
+                <p>✗ <strong>Jawaban Salah:</strong> <span id="finalIncorrect">0</span></p>
+                <p>⭐ <strong>Nilai Akhir:</strong> <span id="finalValue">0</span>%</p>
+            </div>
+
+            <div class="buttons">
+                <button class="btn-submit" onclick="resetGame()">Main Lagi</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                question: "Hasil dari 7 + 5 × 2 adalah?",
+                options: ["14", "17", "24", "12"],
+                correct: 1
+            },
+            {
+                question: "Berapa nilai dari 3² + 4²?",
+                options: ["25", "24", "49", "13"],
+                correct: 0
+            },
+            {
+                question: "Jika 2x + 5 = 13, maka x = ?",
+                options: ["4", "6", "8", "9"],
+                correct: 0
+            },
+            {
+                question: "Luas segitiga dengan alas 10 cm dan tinggi 8 cm adalah?",
+                options: ["80 cm²", "40 cm²", "160 cm²", "45 cm²"],
+                correct: 1
+            },
+            {
+                question: "Berapa keliling lingkaran dengan diameter 14 cm? (π = 22/7)",
+                options: ["44 cm", "88 cm", "154 cm", "77 cm"],
+                correct: 0
+            },
+            {
+                question: "Hasil dari (-5) × (-3) adalah?",
+                options: ["-15", "15", "-8", "8"],
+                correct: 1
+            },
+            {
+                question: "Pecahan yang paling sederhana dari 24/36 adalah?",
+                options: ["2/3", "4/6", "8/12", "12/18"],
+                correct: 0
+            },
+            {
+                question: "Berapa hasil dari 15% dari 200?",
+                options: ["20", "25", "30", "35"],
+                correct: 2
+            },
+            {
+                question: "Jika sudut A = 60°, berapa sudut B jika A dan B adalah sudut berpelurus?",
+                options: ["30°", "60°", "90°", "120°"],
+                correct: 3
+            },
+            {
+                question: "Rata-rata dari 5, 8, 12, 10, 15 adalah?",
+                options: ["8", "10", "12", "15"],
+                correct: 1
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let correctAnswers = 0;
+        let selectedAnswer = null;
+        let answered = false;
+
+        function loadQuestion() {
+            const question = questions[currentQuestionIndex];
+            document.getElementById('questionNumber').textContent = `Soal ${currentQuestionIndex + 1} dari ${questions.length}`;
+            document.getElementById('currentQuestion').textContent = currentQuestionIndex + 1;
+            document.getElementById('questionText').textContent = question.question;
+            document.getElementById('resultMessage').classList.remove('show');
+
+            const optionsContainer = document.getElementById('optionsContainer');
+            optionsContainer.innerHTML = '';
+            
+            question.options.forEach((option, index) => {
+                const optionDiv = document.createElement('div');
+                optionDiv.className = 'option';
+                optionDiv.textContent = option;
+                optionDiv.onclick = () => selectOption(index);
+                optionDiv.id = `option-${index}`;
+                optionsContainer.appendChild(optionDiv);
+            });
+
+            selectedAnswer = null;
+            answered = false;
+            document.getElementById('submitBtn').disabled = false;
+        }
+
+        function selectOption(index) {
+            if (answered) return;
+            
+            document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById(`option-${index}`).classList.add('selected');
+            selectedAnswer = index;
+        }
+
+        function submitAnswer() {
+            if (selectedAnswer === null) {
+                alert('Pilih jawaban terlebih dahulu!');
+                return;
+            }
+
+            answered = true;
+            const question = questions[currentQuestionIndex];
+            const isCorrect = selectedAnswer === question.correct;
+
+            if (isCorrect) {
+                correctAnswers++;
+                score += 10;
+                document.getElementById('resultMessage').textContent = '✓ Benar!';
+                document.getElementById('resultMessage').className = 'result-message show correct';
+                document.getElementById(`option-${selectedAnswer}`).classList.add('correct');
+            } else {
+                document.getElementById('resultMessage').textContent = '✗ Salah!';
+                document.getElementById('resultMessage').className = 'result-message show incorrect';
+                document.getElementById(`option-${selectedAnswer}`).classList.add('incorrect');
+                document.getElementById(`option-${question.correct}`).classList.add('correct');
+            }
+
+            document.getElementById('score').textContent = score;
+            document.getElementById('correct').textContent = correctAnswers;
+            document.getElementById('submitBtn').textContent = 'Soal Berikutnya';
+            document.getElementById('submitBtn').onclick = nextQuestion;
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                document.getElementById('submitBtn').textContent = 'Jawab';
+                document.getElementById('submitBtn').onclick = submitAnswer;
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('gamePage').style.display = 'none';
+            document.getElementById('resultsPage').classList.add('show');
+            
+            const percentage = (score / (questions.length * 10)) * 100;
+            document.getElementById('finalScore').textContent = `${correctAnswers}/${questions.length}`;
+            document.getElementById('finalCorrect').textContent = correctAnswers;
+            document.getElementById('finalIncorrect').textContent = questions.length - correctAnswers;
+            document.getElementById('finalValue').textContent = Math.round(percentage);
+
+            let message = '';
+            if (percentage >= 90) message = '🌟 Sempurna! Kamu jenius!';
+            else if (percentage >= 80) message = '⭐ Excellent! Sangat bagus!';
+            else if (percentage >= 70) message = '👍 Good! Bagus, terus belajar!';
+            else if (percentage >= 60) message = '💪 Cukup! Semangat belajar lebih!';
+            else message = '📚 Terus belajar! Jangan putus asa!';
+            
+            document.getElementById('scoreMessage').textContent = message;
+        }
+
+        function resetGame() {
+            currentQuestionIndex = 0;
+            score = 0;
+            correctAnswers = 0;
+            selectedAnswer = null;
+            answered = false;
+
+            document.getElementById('gamePage').style.display = 'block';
+            document.getElementById('resultsPage').classList.remove('show');
+            document.getElementById('score').textContent = '0';
+            document.getElementById('correct').textContent = '0';
+            
+            loadQuestion();
+        }
+
+        // Initialize game
+        loadQuestion();
+    </script>
+</body>
+</html>
